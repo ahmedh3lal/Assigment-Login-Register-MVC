@@ -1,0 +1,29 @@
+﻿@model List<User>
+
+<table class="table table-hover">
+    <thead>
+       
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+       
+    </thead>
+            @foreach(var ele in Model)
+            {
+               <tr class="table-active">
+                    <td>@ele.Name</td>
+                    <td>@ele.Email</td>
+            <td>
+                <a type="button" class="btn btn-link active" asp-action="Update" asp-route-id="@ele.Id">Update</a>
+            </td>
+            <td>
+                <a type="button" class="badge rounded-pill bg-danger" asp-action="Delete" asp-route-id="@ele.Id">Delete</a>
+            </td>
+                    
+               </tr>
+            }
+</table>
+<td>
+    <a type="button" class="btn btn-outline-success" asp-action="Create">Create</a>
+</td>
